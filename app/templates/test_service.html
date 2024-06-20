@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Services</title>
+  </head>
+  <body>
+    <h1>Service List</h1>
+    <ul>
+    {% for service in services %}
+    <li>{{ service.name }} - {{ service.description }}</li>
+    {% endfor %}
+    </ul>
+  </body>
+</html>

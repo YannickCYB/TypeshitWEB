@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Services - Devis</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/devis.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Cyber Services</h1>
+    </header>
+    <nav>   
+        <a href="/">Accueil</a>
+        <a href="/service">Services</a>
+        <a href="/devis">Devis</a>
+    </nav>
+    <div class="container">
+        <section id="devis">
+            <h2>Demande de Devis</h2>
+            <p>Remplissez le formulaire ci-dessous pour demander un devis personnalisé :</p>
+            <form method="POST" action="{{ url_for('route_devis') }}">
+                {{ form.hidden_tag() }}
+                <div>
+                    {{ form.genre.label }}<br>
+                    {{ form.genre(class="form-control") }}<br>
+                    {% for error in form.genre.errors %}
+                        <span class="error">[{{ error }}]</span><br>
+                    {% endfor %}
+                </div>
+                <div>
+                    {{ form.nom.label }}<br>
+                    {{ form.nom(class="form-control") }}<br>
+                    {% for error in form.nom.errors %}
+                        <span class="error">[{{ error }}]</span><br>
+                    {% endfor %}
+                </div>
+                <div>
+                    {{ form.email.label }}<br>
+                    {{ form.email(class="form-control") }}<br>
+                    {% for error in form.email.errors %}
+                        <span class="error">[{{ error }}]</span><br>
+                    {% endfor %}
+                </div>
+                <div>
+                    {{ form.message.label }}<br>
+                    {{ form.message(class="form-control") }}<br>
+                    {% for error in form.message.errors %}
+                        <span class="error">[{{ error }}]</span><br>
+                    {% endfor %}
+                </div>
+                <div>
+                    {{ form.submit(class="btn btn-primary") }}
+                </div>
+            </form>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Cyber Services. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

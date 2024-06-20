@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Services - Services</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Cyber Services</h1>
+    </header>
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/service">Services</a>
+        <a href="/devis">Devis</a>
+    </nav>
+    <div class="container">
+        <section>
+            <h2>Nos Services</h2>
+            <ul>
+                {% for service in services %}
+                    <li>
+                        <a href="{{ url_for('route_service_detail', service_id=service.id) }}">
+                            <strong>{{ service.name }}</strong>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Cyber Services. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
